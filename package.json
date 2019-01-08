@@ -21,5 +21,10 @@
   },
   "engines": {
     "node": ">=8"
+  },
+  "dependencies": {
+    "feed": "2.0.2",
+    "lodash.defaultsdeep": "4.6.0",
+    "lodash.isempty": "4.4.0"
   }
 }
