@@ -25,7 +25,9 @@
   "dependencies": {
     "feed": "2.0.2",
     "lodash.defaultsdeep": "4.6.0",
-    "lodash.isempty": "4.4.0"
+    "lodash.isempty": "4.4.0",
+    "remove-markdown": "0.3.0",
+    "striptags": "3.1.1"
   },
   "peerDependencies": {
     "vuepress": "1.x"
