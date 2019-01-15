@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "RSS, Atom, and JSON feeds generator plugin for VuePress 1.x",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "version": "git add --all",
+    "postversion": "git push && git push --tags"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/webmasterish/vuepress-plugin-feed.git"
