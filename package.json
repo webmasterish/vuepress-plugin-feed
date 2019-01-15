@@ -11,7 +11,20 @@
     "type": "git",
     "url": "git+https://github.com/webmasterish/vuepress-plugin-feed.git"
   },
-  "keywords": [],
+  "keywords": [
+    "vue",
+    "vuepress",
+    "plugin",
+    "vuepress-plugin",
+    "blog",
+    "feed",
+    "xml",
+    "rss",
+    "atom",
+    "json",
+    "json-feed",
+    "syndication"
+  ],
   "author": {
     "name": "webmasterish",
     "email": "webmasterish@gmail.com",
