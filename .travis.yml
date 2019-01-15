@@ -1,0 +1,28 @@
+sudo: false
+
+
+language: node_js
+
+
+cache:
+  directories:
+    - node_modules
+
+
+node_js:
+  - '8'
+  - '10'
+  - 'stable'
+
+
+install:
+  - npm install
+
+
+deploy:
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_TOKEN
+  skip_cleanup: true
+  on:
+    tags: true
