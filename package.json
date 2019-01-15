@@ -31,5 +31,11 @@
   },
   "peerDependencies": {
     "vuepress": "1.x"
-  }
+  },
+  "files": [
+    "lib",
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ]
 }
