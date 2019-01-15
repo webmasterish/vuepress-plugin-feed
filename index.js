@@ -347,7 +347,7 @@ PLUGIN.good_to_go = ( plugin_options, context ) =>
 PLUGIN.get_feed_url = feed =>
 {
 				
-	if ( ! feed.enable || ! feed.file_name )
+	if ( feed.enable && feed.file_name )
 	{
 		return URL.resolve( PLUGIN.options.canonical_base, feed.file_name );
 	}
