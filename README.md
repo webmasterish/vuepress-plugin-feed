@@ -2,7 +2,7 @@
 
 > RSS, Atom, and JSON feeds generator plugin for VuePress 1.x
 
-[![Build Status](https://img.shields.io/travis/webmasterish/vuepress-new-page/master.svg?style=flat-square)](https://travis-ci.org/webmasterish/vuepress-new-page)
+[![Build Status](https://img.shields.io/travis/webmasterish/vuepress-plugin-feed/master.svg?style=flat-square)](https://travis-ci.org/webmasterish/vuepress-plugin-feed)
 [![npm version](https://img.shields.io/npm/v/vuepress-plugin-feed.svg?style=flat-square)](http://npm.im/vuepress-plugin-feed)
 [![MIT License](https://img.shields.io/npm/l/express.svg?style=flat-square)](http://opensource.org/licenses/MIT) [![Greenkeeper badge](https://badges.greenkeeper.io/webmasterish/vuepress-plugin-feed.svg)](https://greenkeeper.io/)
 
