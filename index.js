@@ -25,7 +25,6 @@ const PLUGIN = {
 	homepage					: HOMEPAGE,
 	key								: PLUGIN_NAME.replace('vuepress-plugin-', ''), // used in frontmatter
 	allowed_feed_types: ['rss2', 'atom1', 'json1'],
-	posts_directories	: ['/blog/', '/_posts/'],
 	pages							: [],
 	options						: {},
 };
@@ -211,6 +210,14 @@ PLUGIN.get_options_defaults = ( context ) =>
 
 		// -------------------------------------------------------------------------
 		
+		// pages in current directories will be auto added as feed 
+		// unless they are disabled using their frontmatter
+		// this option is used by the default is_feed_page function
+		
+		posts_directories: ['/blog/', '/_posts/'],
+
+		// -------------------------------------------------------------------------
+		
 		// function to check if the page is to be used in a feed item
 		
 		is_feed_page: PLUGIN.is_feed_page, // function
@@ -308,7 +315,6 @@ PLUGIN.get_options = ( plugin_options, context ) =>
 			homepage					: PLUGIN.homepage,
 			key								: PLUGIN.key,
 			allowed_feed_types: PLUGIN.allowed_feed_types,
-			posts_directories	: PLUGIN.posts_directories,
 		};
 		
 	}
@@ -423,13 +429,16 @@ PLUGIN.is_feed_page = ( page ) =>
 
 	// ---------------------------------------------------------------------------
 	
-	const directories = PLUGIN.posts_directories;
+	const directories = PLUGIN.options.posts_directories || [];
 	
-	for ( const dir of PLUGIN.posts_directories )
+	if ( ! _.isEmpty( directories ) )
 	{
-		if ( path.startsWith(`${dir}`) )
+		for ( const dir of directories )
 		{
-			return true;
+			if ( path.startsWith(`${dir}`) )
+			{
+				return true;
+			}
 		}
 	}
 

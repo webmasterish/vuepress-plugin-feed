@@ -251,6 +251,14 @@ const default_options = {
 
   // ---------------------------------------------------------------------------
   
+  // pages in current directories will be auto added as feed 
+  // unless they are disabled using their frontmatter
+  // this option is used by the default is_feed_page function
+  
+  posts_directories: ['/blog/', '/_posts/'],
+
+  // ---------------------------------------------------------------------------
+  
   // function to check if the page is to be used in a feed item
   
   is_feed_page: PLUGIN.is_feed_page, // function
