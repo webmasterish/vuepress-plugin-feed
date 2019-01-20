@@ -38,7 +38,7 @@ const feed_options = {
 };
 
 module.exports = {
-  plugins: [ 'feed', feed_options ],
+  plugins: { 'feed', feed_options },
 }
 ```
 
