@@ -72,10 +72,27 @@ feed:
       name: Contributor
       email: contributor@doamin.tld
       link: http://doamin.tld
-  
+
 ---
 
 ```
+
+
+## How pages are added as feed items
+
+A page is auto added as a feed item if one the following conditions is met:
+
+- `frontmatter.feed.enable === true`
+- `frontmatter.type === 'post'`
+- it resides in whatever the `posts_directories` are set to (the defaults are `blog` and `_posts`)
+
+if you need to exclude a particular page that meets one of the conditions above,
+you can use `frontmatter.feed.enable === false`.
+
+Details on how pages are filtered can be found in [`PLUGIN.is_feed_page()`](index.js).
+
+The `PLUGIN.is_feed_page()` function is the default way of filtering the pages,
+you can override it using `is_feed_page` option (see [Options section](#options) below).
 
 
 ## Options
@@ -104,14 +121,14 @@ const {
 // @see: https://github.com/jpmonette/feed#example
 
 const feed_options = {
-  
+
   title,
   description,
   generator: PLUGIN.homepage,
 
   // ---------------------------------------------------------------------------
-  
-  // the following are auto populated in PLUGIN.get_options() 
+
+  // the following are auto populated in PLUGIN.get_options()
   // if they are not set as options
   /*
   id,
@@ -120,7 +137,7 @@ const feed_options = {
   */
 
   // ---------------------------------------------------------------------------
-  
+
   // ref:
   /*
   title: "Feed Title",
@@ -142,31 +159,31 @@ const feed_options = {
     link: "https://example.com/johndoe"
   }
   */
-  
+
 };
 
 // -----------------------------------------------------------------------------
-  
+
 const default_options = {
-    
+
   // required; it can also be used as enable/disable
-  
+
   canonical_base: '',
 
   // ---------------------------------------------------------------------------
-  
+
   // Feed class options - @see: https://github.com/jpmonette/feed#example
   // optional - auto-populated based on context.getSiteData()
-  
+
   feed_options,
 
   // ---------------------------------------------------------------------------
-  
+
   // @notes:
   // property name is also the name of the jpmonette/feed package function
-  
+
   feeds: {
-    
+
     rss2: {
       enable    : true,
       file_name : 'rss.xml',
@@ -178,7 +195,7 @@ const default_options = {
     },
 
     // -------------------------------------------------------------------------
-    
+
     atom1: {
       enable    : true,
       file_name : 'feed.atom',
@@ -190,7 +207,7 @@ const default_options = {
     },
 
     // -------------------------------------------------------------------------
-    
+
     json1: {
       enable    : true,
       file_name : 'feed.json',
@@ -200,25 +217,25 @@ const default_options = {
         title : '%%site_title%% JSON Feed',
       }
     },
-    
+
   },
 
   // ---------------------------------------------------------------------------
-  
+
   // page/post description sources
-  
+
   // order of what gets the highest priority:
   //
   // 1. frontmatter
   // 2. page excerpt
   // 3. content markdown paragraph
   // 4. content regular html <p>
-  
+
   description_sources: [
-  
+
     'frontmatter',
     'excerpt',
-    
+
     // markdown paragraph regex
     // @todo: needs work
     //
@@ -226,14 +243,14 @@ const default_options = {
     //
     // this excludes blockquotes using `(?!^>)`
     ///^((?:(?!^#)(?!^\-|\+)(?!^[0-9]+\.)(?!^!\[.*?\]\((.*?)\))(?!^>)(?!^\[\[.*?\]\])(?!^\{\{.*?\}\})[^\n]|\n(?! *\n))+)(?:\n *)+\n/gim,
-    
+
     // html paragraph regex
     /<p(?:.*?)>(.*?)<\/p>/i,
-    
+
   ],
 
   // ---------------------------------------------------------------------------
-  
+
   // page/post image sources
 
   // order of what gets the highest priority:
@@ -241,41 +258,41 @@ const default_options = {
   // 1. frontmatter
   // 2. content markdown image such as `![alt text](http://url)`
   // 3. content regular html img
-  
+
   image_sources: [
-  
+
     'frontmatter',
-    
+
     /!\[.*?\]\((.*?)\)/i,         // markdown image regex
     /<img.*?src=['"](.*?)['"]/i,  // html image regex
-    
+
   ],
 
   // ---------------------------------------------------------------------------
-  
-  // pages in current directories will be auto added as feed 
+
+  // pages in current directories will be auto added as feed
   // unless they are disabled using their frontmatter
   // this option is used by the default is_feed_page function
-  
+
   posts_directories: ['/blog/', '/_posts/'],
 
   // ---------------------------------------------------------------------------
-  
+
   // function to check if the page is to be used in a feed item
-  
+
   is_feed_page: PLUGIN.is_feed_page, // function
 
   // ---------------------------------------------------------------------------
-  
+
   count: 20,
 
   // ---------------------------------------------------------------------------
-  
+
   // supported - use in config as needed
-  
+
   // category
   // contributor
-  
+
 };
 ```
 
