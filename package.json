@@ -39,7 +39,7 @@
     "node": ">=8"
   },
   "dependencies": {
-    "feed": "2.0.3",
+    "feed": "2.0.4",
     "lodash.defaultsdeep": "4.6.0",
     "lodash.isempty": "4.4.0",
     "remove-markdown": "0.3.0",
