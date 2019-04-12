@@ -226,6 +226,12 @@ PLUGIN.get_options_defaults = ( context ) =>
 		
 		count: 20,
 
+        // optional sorting function for the entries.
+        // Gets the array entries as the input, expects the sorted array
+        // as its output.
+        // e.g.:   sort:  entries => _.reverse( _.sortBy( entries, 'date' ) ),
+        sort: entries => entries,  // defaults to just returning it as it is
+
 		// -------------------------------------------------------------------------
 		
 		// supported - use in config as needed
