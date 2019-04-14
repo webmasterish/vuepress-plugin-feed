@@ -286,6 +286,12 @@ const default_options = {
 
   count: 20,
 
+  // optional sorting function for the entries. 
+  // Gets the array entries as the input, expects the sorted array
+  // as its output.
+  // e.g.:   sort:  entries => _.reverse( _.sortBy( entries, 'date' ) ),
+  sort: entries => entries,
+
   // ---------------------------------------------------------------------------
 
   // supported - use in config as needed
