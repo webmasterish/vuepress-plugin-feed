@@ -42,6 +42,8 @@
     "feed": "2.0.4",
     "lodash.defaultsdeep": "4.6.1",
     "lodash.isempty": "4.4.0",
+    "lodash.trimend": "^4.5.1",
+    "lodash.trimstart": "^4.5.1",
     "remove-markdown": "0.3.0",
     "striptags": "3.1.1"
   },
