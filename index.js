@@ -1,6 +1,5 @@
 'use strict';
 
-const URL	= require('url');
 const _		= {
 	defaultsDeep: require('lodash.defaultsdeep'),
 	isEmpty			: require('lodash.isempty'),
@@ -9,6 +8,7 @@ const _		= {
 // -----------------------------------------------------------------------------
 
 const LIB	= require('./lib');
+const UTIL	= require('./lib/UTIL');
 
 // -----------------------------------------------------------------------------
 
@@ -361,7 +361,7 @@ PLUGIN.get_feed_url = feed =>
 
 	if ( feed.enable && feed.file_name )
 	{
-		return URL.resolve( PLUGIN.options.canonical_base, feed.file_name );
+		return UTIL.resolve_url(PLUGIN.options.canonical_base, feed.file_name);
 	}
 
 };
