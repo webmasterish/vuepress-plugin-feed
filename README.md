@@ -291,7 +291,9 @@ const default_options = {
   // as its output.
   // e.g.:   sort:  entries => _.reverse( _.sortBy( entries, 'date' ) ),
   // Don't forget to do a `const _ = require('lodash');` to be able to use `_`!
+
   sort: entries => entries,
+
   // ---------------------------------------------------------------------------
 
   // supported - use in config as needed
