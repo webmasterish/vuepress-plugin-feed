@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-feed",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "RSS, Atom, and JSON feeds generator plugin for VuePress 1.x",
   "main": "index.js",
   "scripts": {
